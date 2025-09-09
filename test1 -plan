@@ -1,0 +1,59 @@
+Test Plan – Payment Gateway Functionality
+
+1. Introduction
+The purpose of this Test Plan is to define the testing strategy and scope for the Payment Gateway functionality of the e-commerce application. The goal is to ensure that all payment methods work securely, reliably, and efficiently under various scenarios.
+
+2. Scope
+This test plan covers:
+Functional testing of payment workflows.
+Security validation of sensitive data handling.
+Performance testing under load.
+Integration testing between e-commerce site and payment gateway.
+Negative testing for invalid inputs and error handling.
+
+Out of scope:
+Backend settlement between banks.
+Third-party banking application testing.
+
+
+3. Objectives
+Verify smooth navigation to payment gateway after order placement.
+Validate payments through Cards, UPI, Net Banking, and Wallets.
+Ensure data security (no sensitive info stored, HTTPS enforced).
+Measure system performance under heavy load.
+Validate proper integration between order system and payment gateway.
+Ensure correct handling of failed, cancelled, or incomplete transactions.
+
+
+4. Test Strategy
+Functional Testing: Validate end-to-end payment flows.
+Security Testing: Ensure encryption, HTTPS, and OTP/PIN handling.
+Performance Testing: Validate high-load scenarios and response times.
+Integration Testing: Verify database updates and confirmation notifications.
+Negative Testing: Ensure system stability with invalid inputs and interruptions.
+
+
+5. Entry & Exit Criteria
+Entry Criteria:
+Application build deployed.
+Test environment ready.
+Payment gateway sandbox credentials available.
+
+Exit Criteria:
+All critical and high-severity defects resolved.
+Test cases executed with ≥95% pass rate.
+No open security vulnerabilities.
+
+
+6. Risks
+Dependency on third-party payment gateway uptime.
+Delay in receiving OTP/SMS from banks.
+Load testing limitations in staging environment.
+
+
+7. Deliverables
+Test Plan Document.
+Test Case Document.
+Test Execution Report.
+Defect Log.
+

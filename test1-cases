@@ -1,0 +1,48 @@
+Functional Testing Test cases
+
+| Test Case ID | Test Scenario                          | Test Steps                                 | Expected Result                   | Actual Result | Status    |
+| ------------ | -------------------------------------- | ------------------------------------------ | --------------------------------- | ------------- | --------- |
+| TC\_FUNC\_01 | Navigation to payment page after order | Add product → Checkout → Place Order       | Redirected to secure payment page | To be tested  | Pass/Fail |
+| TC\_FUNC\_02 | Payment via Card                       | Select Card → Enter details → Enter OTP    | Payment success, status = Paid    | To be tested  | Pass/Fail |
+| TC\_FUNC\_03 | Payment via UPI                        | Select UPI → Enter UPI ID → Approve        | Payment successful                | To be tested  | Pass/Fail |
+| TC\_FUNC\_04 | Refund process                         | Place order → Request refund               | Refund initiated                  | To be tested  | Pass/Fail |
+| TC\_FUNC\_05 | Cancel transaction                     | Start payment → Cancel before confirmation | Order marked as Cancelled         | To be tested  | Pass/Fail |
+
+
+Security Testing Test cases
+
+| Test Case ID | Test Scenario             | Test Steps                                | Expected Result              | Actual Result | Status    |
+| ------------ | ------------------------- | ----------------------------------------- | ---------------------------- | ------------- | --------- |
+| TC\_SEC\_01  | Sensitive data not stored | Enter card details → Complete transaction | No CVV/PIN stored in DB      | To be tested  | Pass/Fail |
+| TC\_SEC\_02  | SSL/HTTPS enabled         | Observe payment URL                       | HTTPS enforced               | To be tested  | Pass/Fail |
+| TC\_SEC\_03  | Wrong OTP handling        | Enter incorrect OTP thrice                | Declined with error          | To be tested  | Pass/Fail |
+| TC\_SEC\_04  | Brute force protection    | Multiple wrong card attempts              | Account locked/block request | To be tested  | Pass/Fail |
+
+
+performance Testing Test cases
+
+| Test Case ID | Test Scenario   | Test Steps                               | Expected Result              | Actual Result | Status    |
+| ------------ | --------------- | ---------------------------------------- | ---------------------------- | ------------- | --------- |
+| TC\_PERF\_01 | Load handling   | Simulate 500 users paying simultaneously | No crash, stable performance | To be tested  | Pass/Fail |
+| TC\_PERF\_02 | Response time   | Complete transaction                     | Confirmation < 3 sec         | To be tested  | Pass/Fail |
+| TC\_PERF\_03 | DB update speed | Complete payment → Check DB              | Status updated < 5 sec       | To be tested  | Pass/Fail |
+
+
+Integration Testing Test cases:
+
+| Test Case ID | Test Scenario          | Test Steps            | Expected Result                     | Actual Result | Status    |
+| ------------ | ---------------------- | --------------------- | ----------------------------------- | ------------- | --------- |
+| TC\_INT\_01  | Redirection to gateway | Place order → Payment | Correct redirection                 | To be tested  | Pass/Fail |
+| TC\_INT\_02  | Order status update    | Complete payment      | DB updated with Paid/Failed/Pending | To be tested  | Pass/Fail |
+| TC\_INT\_03  | Notification           | Complete payment      | SMS/Email confirmation sent         | To be tested  | Pass/Fail |
+
+
+navigation Testing Test cases:
+
+| Test Case ID | Test Scenario             | Test Steps                    | Expected Result                | Actual Result | Status    |
+| ------------ | ------------------------- | ----------------------------- | ------------------------------ | ------------- | --------- |
+| TC\_NEG\_01  | Invalid card              | Enter wrong card number       | Error: Invalid card            | To be tested  | Pass/Fail |
+| TC\_NEG\_02  | Expired card              | Enter expired card            | Error: Card expired            | To be tested  | Pass/Fail |
+| TC\_NEG\_03  | Insufficient balance      | Use card with low funds       | Error: Insufficient balance    | To be tested  | Pass/Fail |
+| TC\_NEG\_04  | Wrong OTP/UPI PIN         | Enter incorrect OTP/PIN       | Authentication failed          | To be tested  | Pass/Fail |
+| TC\_NEG\_05  | Close browser mid-payment | Start payment → Close browser | Order marked as Failed/Pending | To be tested  | Pass/Fail |
